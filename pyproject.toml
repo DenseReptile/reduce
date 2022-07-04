@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "reduce"
+version = "0.1.0"
+description = ""
+authors = ["Dense Reptile <80247368+DenseReptile@users.noreply.github.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+colorama = "^0.4.5"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+pylint = "^2.14.4"
+hypothesis = "^6.48.3"
+
+[tool.isort]
+profile = "black"
+
+[tool.pylint.FORMAT]
+max-line-length = 88
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
