@@ -1,6 +1,5 @@
 # Encoding: UTF-8
-"""The main set of utilities."""
-
+# pylint: disable=missing-module-docstring
 
 import functools as fn
 from typing import Callable, Optional
@@ -9,6 +8,8 @@ import colorama
 
 
 class Task:
+    """Manages tasks."""
+
     registry: dict[int, Callable] = {}
 
     @classmethod
@@ -47,6 +48,7 @@ class Task:
         # Another layer is added in the event I can make being able to use the decorator
         # with or without the parentheses possible. Future proofing, in a nutshell.
         def _decorator(add_parentheses_to_the_decorator: Callable) -> Callable:
+            # Constants
             BG = colorama.Back  # pylint: disable=invalid-name
             FG = colorama.Fore  # pylint: disable=invalid-name
             style = colorama.Style

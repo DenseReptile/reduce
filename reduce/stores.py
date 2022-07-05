@@ -1,9 +1,8 @@
 # Encoding: UTF-8
-
+# pylint: disable=missing-module-docstring
 
 from dataclasses import dataclass
 from typing import (
-    TYPE_CHECKING,
     Any,
     Callable,
     Final,
@@ -13,17 +12,17 @@ from typing import (
     Union,
 )
 
-if TYPE_CHECKING:
-    S = TypeVar("S")
+S = TypeVar("S")
 _NONE: Final = type
 
 
 @dataclass
 class Writable(Generic[S]):
+    """Stores a readable/writable value."""
+
     state: S
 
     def __call__(self, state: Union[S, _NONE] = _NONE):
-        """# TODO: Documentation."""
         if state is _NONE:
             return self.state
 
@@ -31,21 +30,22 @@ class Writable(Generic[S]):
         return None
 
     def get(self):
-        """# TODO: Documentation."""
+        """Get the current state."""
         return self.state
 
     def set(self, state: S) -> None:
-        """# TODO: Documentation."""
+        """Set the current state."""
         self.state = state
 
 
 @dataclass
 class Derive(Generic[S]):
+    """Derive from a store's value."""
+
     state: Writable
     callback: Optional[Callable[[Any], Any]] = None
 
     def __call__(self) -> None:
-        """# TODO: Documentation."""
         if isinstance(self.callback, Callable):
             self.callback(self.state())
 
