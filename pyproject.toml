@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "reduce"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 authors = ["Dense Reptile <80247368+DenseReptile@users.noreply.github.com>"]
 
